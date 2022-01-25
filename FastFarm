@@ -1,0 +1,64 @@
+task.spawn(function() pcall(function()
+game:GetService("CoreGui").DescendantAdded:Connect(function(child) 
+    if child.Name == "ErrorPrompt" then 
+        local GrabError = child:FindFirstChild("ErrorMessage",true)
+        repeat wait() until GrabError.Text ~= "Label" 
+        local Reason = GrabError.Text 
+        if Reason:find("kick") or Reason:find("You") or Reason:find("conn") or Reason:find("rejoin") or Reason:find("launch") or Reason:find("account") then 
+                 wait(1)
+         game:GetService("TeleportService"):Teleport(game.PlaceId, game:GetService("Players").LocalPlayer)
+        end 
+    end 
+end ) 
+end ) 
+end )
+end)
+
+if #game.Players:GetPlayers() == 2 then
+	print("2 players detected!!")
+else
+	game:GetService("TeleportService"):Teleport(2008032602, game.Players.LocalPlayer)
+end
+    
+    elseif id == 1458767429 then
+    
+    
+if #game.Players:GetPlayers() == 2 then
+	print("2 players detected!!")
+else
+	game:GetService("TeleportService"):Teleport(2008032602, game.Players.LocalPlayer)
+end
+        spawn (function()
+	game:GetService("RunService").RenderStepped:Connect(function()
+		local args = {
+		    [1] = "ban",
+		    [2] = "Shunsui"
+		}
+		game:GetService("Players").LocalPlayer.PlayerGui.BanChooser.rem:FireServer(unpack(args))
+	end)
+
+            game:GetService("RunService").RenderStepped:Connect(function()  
+                print("auto kill initiated")
+                task.wait()
+                game.Players.LocalPlayer.Character.Humanoid.Health = 0
+            end)
+        end)
+        game:GetService("RunService").RenderStepped:Connect(function()
+        print("Auto teleport intiated")
+        task.wait(200)
+        game:GetService("TeleportService"):Teleport(2008032602, game.Players.LocalPlayer)
+        end)
+    elseif id == 2008032602 then
+        game:GetService("RunService").RenderStepped:Connect(function()
+            print("Auto join into game initiated!!")
+            task.wait(2)
+            local args = {
+                [1] = true
+            }
+            
+            game:GetService("ReplicatedStorage").Place:FireServer(unpack(args))
+        end)
+	game:GetService("RunService").RenderStepped:Connect(function()
+		task.wait(30)
+		game:GetService("TeleportService"):Teleport(2008032602, game.Players.LocalPlayer)
+	end)
